@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-management
+spec:
+  selector:
+    matchLabels:
+      app: email-management
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: email-management
+    spec:
+      containers:
+        - name: email-management
+          image: mith99/email-management:{{tag}}
+          ports:
+            - containerPort: 8082

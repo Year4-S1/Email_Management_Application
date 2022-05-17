@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: email-management
+  name: email-management
+spec:
+  ports:
+    - protocol: TCP
+      port: 8082
+  selector:
+    app: email-management
+  type: LoadBalancer

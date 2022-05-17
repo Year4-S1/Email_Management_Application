@@ -50,7 +50,7 @@ const updateEmailPref = async (req, res) => {
   } else {
     await EmailPref.findByIdAndUpdate(
       req.params.id,
-      { item: req.body.prefList },
+      { preference: req.body.preference, prefList: req.body.prefList },
       { new: true },
       function (err, result) {
         if (err) {
